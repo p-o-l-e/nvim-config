@@ -34,3 +34,37 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 vim.keymap.set("v", "<C-c>", '"+y', 		{ silent = true })
 vim.keymap.set("v", "<C-x>", '"+c',  		{ silent = true })
 vim.keymap.set("n", "<C-v>", 'c<ESC>"+p', 	{ silent = true })
+
+
+-- MOVEMENT
+
+keymap.set("n", "<C-Left>", "<C-w>h")
+keymap.set("n", "<C-Down>", "<C-w>j")
+keymap.set("n", "<C-Up>", "<C-w>k")
+keymap.set("n", "<C-Right>", "<C-w>l")
+
+-- terminal
+keymap.set("t", "<C-Left>", "<cmd>wincmd h<CR>")
+keymap.set("t", "<C-Down>", "<cmd>wincmd j<CR>")
+keymap.set("t", "<C-Up>", "<cmd>wincmd k<CR>")
+keymap.set("t", "<C-Right>", "<cmd>wincmd l<CR>")
+
+
+-- RESIZE
+
+keymap.set("n", "<C-S-Up>", ":resize +1<CR>")
+keymap.set("n", "<C-S-Down>", ":resize -1<CR>")
+keymap.set("n", "<C-S-Left>", ":vertical resize +1<CR>")
+keymap.set("n", "<C-S-Right>", ":vertical resize -1<CR>")
+
+-- terminal
+keymap.set("t", "<C-S-Up>", "<cmd>resize +1<CR>")
+keymap.set("t", "<C-S-Down>", "<cmd>resize -1<CR>")
+keymap.set("t", "<C-S-Left>", "<cmd>vertical resize +1<CR>")
+keymap.set("t", "<C-S-Right>", "<cmd>vertical resize -1<CR>")
+
+-- Buffer navigation
+
+keymap.set("n", "<A-TAB>",   ":bn<CR>")
+keymap.set("n", "<S-A-TAB>", ":bp<CR>")
+keymap.set("n", "<A-q>",     ":bd<CR>")

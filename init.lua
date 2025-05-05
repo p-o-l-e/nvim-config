@@ -31,6 +31,7 @@ function lazy.setup(plugins)
   vim.opt.rtp:prepend(lazy.path)
 
   require('lazy').setup(plugins, lazy.opts)
+  require("lazy").setup("plugins", {}) 
 
   vim.g.plugins_ready = true
 end
@@ -41,6 +42,8 @@ lazy.opts = {}
 lazy.setup({
 	require("plugins/nvim-treesitter"),
 	require("plugins/nvim-lspconfig"),
+	require("plugins/telescope"),
+	require("plugins/dashboard"),
 
   	{'kaicataldo/material.vim'},
   	{'nvim-lualine/lualine.nvim'},
@@ -48,11 +51,12 @@ lazy.setup({
 
 })
 
+
 vim.cmd.colorscheme('material')
 
+require('config/telescope')
 require('config/lualine')
 require('config/nvim-tree')
 
-vim.keymap.set('n', '<F3>', ':NvimTreeToggle<cr>')
 
 
