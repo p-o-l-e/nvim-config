@@ -44,14 +44,16 @@ lazy.setup({
 	require("plugins/nvim-lspconfig"),
 	require("plugins/telescope"),
 	require("plugins/dashboard"),
+	require("plugins/minimap"),
 
-  	{'kaicataldo/material.vim'},
+	{'p-o-l-e/material.nvim'},
+
   	{'nvim-lualine/lualine.nvim'},
   	{'nvim-tree/nvim-tree.lua'},
 
 })
 
-
+require('config/material')
 vim.cmd.colorscheme('material')
 
 require('config/telescope')
