@@ -35,81 +35,24 @@ function lazy.setup(plugins)
   vim.g.plugins_ready = true
 end
 
-
 lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 lazy.opts = {}
 
 lazy.setup({
-  	---
-  	-- List of plugins
-  	---
-  	{
-    	"nvim-treesitter/nvim-treesitter",
-    	build = ":TSUpdate",
-    	config = function () 
-      	local configs = require("nvim-treesitter.configs")
+	require("plugins/nvim-treesitter"),
+	require("plugins/nvim-lspconfig"),
 
-      	configs.setup({
-          	ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html", "python" },
-          	sync_install = false,
-          	highlight = { enable = true },
-          	indent = { enable = true },  
-        	})
-    	end
- 	},
-
-	{
-	  "neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
-	  lazy = false, -- REQUIRED: tell lazy.nvim to start this plugin at startup
-	  dependencies = {
-	    -- main one
-	    { "ms-jpq/coq_nvim", branch = "coq" },
-
-	    -- 9000+ Snippets
-	    { "ms-jpq/coq.artifacts", branch = "artifacts" },
-
-	    -- lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
-	    -- Need to **configure separately**
-	    { 'ms-jpq/coq.thirdparty', branch = "3p" }
-	    -- - shell repl
-	    -- - nvim lua api
-	    -- - scientific calculator
-	    -- - comment banner
-	    -- - etc
-	  },
-	  init = function()
-	    vim.g.coq_settings = {
-	        auto_start = true, -- if you want to start COQ at startup
-	        -- Your COQ settings here
-	    }
-	  end,
-	  config = function()
-	    -- Your LSP settings here
-	  end,
-	},
- 	
   	{'kaicataldo/material.vim'},
   	{'nvim-lualine/lualine.nvim'},
+  	{'nvim-tree/nvim-tree.lua'},
 
-  	{'ms-jpq/chadtree'},
-	--{
-    --	"nvim-neo-tree/neo-tree.nvim",
-    --	branch = "v3.x",
-   -- 	dependencies = {
-    --  		"nvim-lua/plenary.nvim",
-     -- 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-     -- 		"MunifTanjim/nui.nvim",
-      		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    --	}
-	--},
-    
-  	--{'neoclide/coc.nvim'},  
 })
-
 
 vim.cmd.colorscheme('material')
 
 require('config/lualine')
+require('config/nvim-tree')
+
+vim.keymap.set('n', '<F3>', ':NvimTreeToggle<cr>')
 
 
-vim.keymap.set('n', '<F3>', ':CHADopen<cr>')
