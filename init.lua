@@ -45,9 +45,9 @@ lazy.setup({
 	require("plugins/telescope"),
 	require("plugins/dashboard"),
 	require("plugins/minimap"),
-
+	require("plugins/aerial"),
+	-- {'preservim/tagbar'},
 	{'p-o-l-e/material.nvim'},
-
   	{'nvim-lualine/lualine.nvim'},
   	{'nvim-tree/nvim-tree.lua'},
 
@@ -56,9 +56,13 @@ lazy.setup({
 require('config/material')
 vim.cmd.colorscheme('material')
 
+require('config/aerial')
 require('config/telescope')
 require('config/lualine')
 require('config/nvim-tree')
+
+-- vim.keymap.set('n', '<F8>', ':TagbarToggle<cr>')
+
 
 
 
