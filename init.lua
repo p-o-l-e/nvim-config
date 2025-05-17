@@ -33,6 +33,7 @@ function lazy.setup(plugins)
   require('lazy').setup(plugins, lazy.opts)
   require("lazy").setup("plugins", {}) 
 
+
   vim.g.plugins_ready = true
 end
 
@@ -46,23 +47,28 @@ lazy.setup({
 	require("plugins/dashboard"),
 	require("plugins/minimap"),
 	require("plugins/aerial"),
-	-- {'preservim/tagbar'},
+	require("plugins/stay-centered"),
+	require("plugins/mason"),
+	require("plugins/conform"),
+	require("plugins/blink"),
+	{'echasnovski/mini.comment', version = '*' },
+	{'echasnovski/mini.move', version = '*' },
+	{'echasnovski/mini.colors', version = '*' },
 	{'p-o-l-e/material.nvim'},
   	{'nvim-lualine/lualine.nvim'},
   	{'nvim-tree/nvim-tree.lua'},
-
 })
 
 require('config/material')
 vim.cmd.colorscheme('material')
 
+require('config/nvim-lspconfig')
 require('config/aerial')
 require('config/telescope')
 require('config/lualine')
 require('config/nvim-tree')
-
--- vim.keymap.set('n', '<F8>', ':TagbarToggle<cr>')
-
-
+require('config/mini-comment')
+require('config/mini-move')
+require('config/mini-colors')
 
 

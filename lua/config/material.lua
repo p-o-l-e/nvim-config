@@ -44,7 +44,7 @@ require('material').setup({
         -- "nvim-cmp",
         -- "nvim-navic",
         "nvim-tree",
-        -- "nvim-web-devicons",
+        "nvim-web-devicons",
         -- "rainbow-delimiters",
         -- "sneak",
         "telescope",

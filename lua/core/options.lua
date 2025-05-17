@@ -51,3 +51,30 @@ local set = vim.opt -- set options
 set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
+
+
+vim.diagnostic.config({
+	
+	underline = false,
+	signs = { 
+		active = true,
+		text = {
+		  [vim.diagnostic.severity.ERROR] = "",
+		  [vim.diagnostic.severity.WARN]  = "",
+		  [vim.diagnostic.severity.HINT]  = "󰟃",
+		  [vim.diagnostic.severity.INFO]  = "",
+		},
+	},
+    virtual_text = false,
+	float = {
+		border = "single",
+		format = function(diagnostic)
+			return string.format(
+				"%s (%s) [%s]",
+				diagnostic.message,
+				diagnostic.source,
+				diagnostic.code or diagnostic.user_data.lsp.code
+			)
+		end,
+	},
+})
