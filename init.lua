@@ -31,7 +31,7 @@ function lazy.setup(plugins)
   vim.opt.rtp:prepend(lazy.path)
 
   require('lazy').setup(plugins, lazy.opts)
-  require("lazy").setup("plugins", {}) 
+  -- require("lazy").setup("plugins", {}) 
 
 
   vim.g.plugins_ready = true
@@ -44,27 +44,42 @@ lazy.setup({
 	require("plugins/nvim-treesitter"),
 	require("plugins/nvim-lspconfig"),
 	require("plugins/telescope"),
+	require("plugins/telescope-fb"),
 	require("plugins/dashboard"),
 	require("plugins/minimap"),
 	require("plugins/aerial"),
-	require("plugins/stay-centered"),
+	require("plugins/yanky"),
+	require("plugins/dap"),
+	require("plugins/harpoon"),
+	-- require("plugins/stay-centered"),
+	require("plugins/which-key"),
 	require("plugins/mason"),
 	require("plugins/conform"),
+	-- require("plugins/avante"),
 	require("plugins/blink"),
+	require("plugins/nvim-tree"),
+	require("plugins/lualine"),
+	{'mg979/vim-visual-multi', branch = "master" },
 	{'echasnovski/mini.comment', version = '*' },
 	{'echasnovski/mini.move', version = '*' },
 	{'echasnovski/mini.colors', version = '*' },
 	{'p-o-l-e/material.nvim'},
-  	{'nvim-lualine/lualine.nvim'},
-  	{'nvim-tree/nvim-tree.lua'},
 })
 
+require("dapui").setup()
+require('config/dap')
+-- require("dapui").toggle()
 require('config/material')
 vim.cmd.colorscheme('material')
 
 require('config/nvim-lspconfig')
+require('config/blink')
+require('config/yanky')
+-- require('config/supermaven')
 require('config/aerial')
 require('config/telescope')
+require('config/telescope-fb')
+require('config/harpoon')
 require('config/lualine')
 require('config/nvim-tree')
 require('config/mini-comment')

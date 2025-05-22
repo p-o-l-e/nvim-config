@@ -52,30 +52,6 @@ return	{
 	    
 	  dependencies = {
 	  	 { 'saghen/blink.cmp' },
-	    -- { "ms-jpq/coq_nvim", branch = "coq" },
-	    -- { "ms-jpq/coq.artifacts", branch = "artifacts" },
-	    -- lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
-	    -- Need to **configure separately**
-	    -- { 'ms-jpq/coq.thirdparty', branch = "3p" }
-	    -- - shell repl
-	    -- - nvim lua api
-	    -- - scientific calculator
-	    -- - comment banner
-	    -- - etc
-
-	    -- Autocompletion
-	--     { 'hrsh7th/nvim-cmp' }, -- Required
-	--     { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-	--     { 'hrsh7th/cmp-buffer' }, -- Optional
-	--     { 'hrsh7th/cmp-path' }, -- Optional
-	--     { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-	--     { 'hrsh7th/cmp-nvim-lua' }, -- Optional
-	-- 
-	--     -- Snippets
-	--     { 'L3MON4D3/LuaSnip' },    -- Required
-	--     { 'rafamadriz/friendly-snippets' }, -- Optional
-
-
 			    
 	  },
 	  init = function()
@@ -105,10 +81,9 @@ return	{
 	  config = function()
 	  	require'lspconfig'.clangd.setup{}
 	    -- Your LSP settings here
-	    	local capabilities = require('blink.cmp').get_lsp_capabilities()
-	        local lspconfig = require('lspconfig')
-	    
-	        lspconfig['lua_ls'].setup({ capabilities = capabilities })
+	    local capabilities = require('blink.cmp').get_lsp_capabilities()
+	    local lspconfig = require('lspconfig')
+	    lspconfig['lua_ls'].setup({ capabilities = capabilities })
 	  end,
 	}
 
